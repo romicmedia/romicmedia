@@ -8,6 +8,17 @@
     <meta property="og:title" content="Romic Media | Creative & Digital Media Agency">
     <meta property="og:description" content="We Create Powerful, Innovative, Fun & Memorable Content. Everything under one roof.">
     <meta property="og:image" content="Romic_Media_Logo.png">
+
+    <!-- 1. Google ke liye (SEO fixed) -->
+<link rel="canonical" href="https://romicmedia.com/" />
+
+<!-- 2. User ke liye (URL cleaner) -->
+<script>
+    if (window.location.search.includes('?p=')) {
+        const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+    }
+</script>
     
     <!-- CSS and FontAwesome Icons -->
     <link rel="stylesheet" href="style.css">
