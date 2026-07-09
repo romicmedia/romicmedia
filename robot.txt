@@ -1,9 +1,0 @@
-User-agent: *
-Disallow: /?p=
-Disallow: /Finance/
-Disallow: /wp-
-Disallow: /casino
-Disallow: /slots
-Disallow: /blackjack
-
-Sitemap: https://romicmedia.com/sitemap.xml
