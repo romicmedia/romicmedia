@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Romic Media | Official Agency Mobile App</title>
+  <meta name="description" content="Romic Media official mobile application. Explore viral creative services, watch viral video campaigns, calculate project scopes, and track active production.">
+  <meta name="theme-color" content="#070709">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/png" href="Romic_Media_Logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <!-- Ambient Cyberpunk Lighting -->
+  <div class="ambient-glow ambient-1"></div>
+  <div class="ambient-glow ambient-2"></div>
+
+  <!-- Desktop Presentation Toolbar -->
+  <div class="demo-presentation-bar" id="presentation-bar">
+    <span><i class="fa-solid fa-play"></i> Romic Media App Demo</span>
+    <button class="demo-btn" id="toggle-frame-btn">
+      <i class="fa-solid fa-expand"></i> Full Screen Mode
+    </button>
+    <button class="demo-btn" onclick="switchTab('videos')">
+      <i class="fa-solid fa-circle-play"></i> Viral Videos Tab
+    </button>
+    <button class="demo-btn" onclick="switchTab('services')">
+      <i class="fa-solid fa-bolt"></i> Full Services Page
+    </button>
+  </div>
+
+  <!-- Device Frame (Smartphone Mockup Container) -->
+  <div class="device-wrapper" id="device-frame">
+
+    <!-- Dynamic Island / Top Notch -->
+    <div class="device-island">
+      <div class="camera-lens"></div>
+      <div class="sensor-glow"></div>
+    </div>
+
+    <!-- Live Status Bar -->
+    <div class="device-status-bar">
+      <span id="live-time">10:45</span>
+      <div class="status-icons">
+        <i class="fa-solid fa-signal"></i>
+        <span>5G</span>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="app-brand">
+        <img src="Romic_Media_Logo.png" alt="Romic Media" class="app-logo">
+        <span class="brand-badge">AGENCY APP</span>
+      </div>
+      <div class="header-actions">
+        <a href="https://wa.me/923209670625" target="_blank" class="whatsapp-chip">
+          <i class="fa-brands fa-whatsapp"></i> Chat
+        </a>
+        <button class="icon-btn" id="notif-btn" aria-label="Notifications">
+          <i class="fa-regular fa-bell"></i>
+          <span class="notification-dot"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Notification Dropdown Tray -->
+    <div class="notifications-tray" id="notifications-tray">
+      <div class="tray-head">
+        <span>Updates & Alerts</span>
+        <span style="color:var(--accent-pink); cursor:pointer;" onclick="showToast('All caught up!')">Mark Read</span>
+      </div>
+      <div class="notif-item">
+        <i class="fa-solid fa-circle-play"></i>
+        <div><strong>New Viral Video:</strong> University Dropout to Global Agency is now live on the feed!</div>
+      </div>
+      <div class="notif-item">
+        <i class="fa-solid fa-video"></i>
+        <div><strong>Cut #1 Ready:</strong> Dubai Luxury Villa draft is uploaded for client approval.</div>
+      </div>
+      <div class="notif-item">
+        <i class="fa-solid fa-fire"></i>
+        <div><strong>Trend Alert:</strong> New retention sound format trending across UK & GCC.</div>
+      </div>
+    </div>
+
+    <!-- Main Viewport -->
+    <main class="app-viewport">
+
+      <!-- ============================================================
+           TAB 1: HOME SCREEN
+           ============================================================ -->
+      <section class="app-screen active" id="screen-home">
+
+        <!-- 1. Hero Banner (At Top) -->
+        <div class="hero-glass-banner">
+          <div class="hero-pill">
+            <i class="fa-solid fa-circle"></i> VIRAL-FIRST PRODUCTION
+          </div>
+          <h2>We Create <span class="gradient-text">Content That Gets Seen, Shared & </span> Remembered</h2>
+          <p>Full-service creative & digital media house. We help brands dominate algorithms through high-retention video production.</p>
+          <div class="hero-cta-group">
+            <button class="btn-primary" onclick="scrollToHomeVideo()">
+              <i class="fa-solid fa-play"></i> Watch Video
+            </button>
+            <button class="btn-secondary" onclick="switchTab('services')">
+              Services
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Quick Stats Horizontal Scroller -->
+        <div class="stats-scroller">
+          <div class="stat-pill">
+            <div class="num">50+</div>
+            <div class="label">Delivered</div>
+          </div>
+          <div class="stat-pill">
+            <div class="num">20M+</div>
+            <div class="label">Organic Views</div>
+          </div>
+          <div class="stat-pill">
+            <div class="num">10+</div>
+            <div class="label">Industries</div>
+          </div>
+          <div class="stat-pill">
+            <div class="num">100%</div>
+            <div class="label">Satisfaction</div>
+          </div>
+        </div>
+
+        <!-- 3. Featured Video Section (Plays On Scroll!) -->
+        <div class="section-header-row">
+          <h3>Featured Viral Cut</h3>
+          <span class="see-all" onclick="toggleHomeVideoSound(event)" style="color:var(--accent-cyan);">
+            <i class="fa-solid fa-volume-high"></i> Sound On
+          </span>
+        </div>
+
+        <div class="video-hero-card" id="home-video-container" onclick="toggleHomeVideoPlay(event)">
+          <video id="home-featured-video" class="native-video-player" playsinline muted loop preload="metadata">
+            <source src="video/From university dropout to building a global content business and documenting every step of the .mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+
+          <!-- Interactive Video Controls Overlay -->
+          <div class="video-controls-overlay">
+            <div class="video-top-bar">
+              <span class="video-live-pill">
+                <i class="fa-solid fa-circle"></i> My Journey
+              </span>
+              <button class="sound-toggle-btn" id="home-sound-btn" onclick="toggleHomeVideoSound(event)" title="Toggle Sound">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+            </div>
+
+            <div class="video-play-center-btn" id="home-play-btn" onclick="toggleHomeVideoPlay(event)">
+              <i class="fa-solid fa-play"></i>
+            </div>
+
+            <div class="video-bottom-info">
+              <div class="video-title-main">From Dropout to Global Agency</div>
+              <div class="video-desc-sub">Documenting Every Step • Romic Media Story</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Viral Videos Showcase Ribbon -->
+        <div class="insta-home-ribbon" onclick="switchTab('videos')">
+          <div class="insta-ribbon-left">
+            <div class="insta-icon-circle" style="background:linear-gradient(135deg, var(--accent-purple), var(--accent-pink));">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <div>
+              <div class="insta-ribbon-title">Watch All Viral Videos</div>
+              <div class="insta-ribbon-sub">Real client campaign edits & viral case studies</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color:#fff; font-size:14px;"></i>
+        </div>
+
+        <!-- Quick Access to Growth Tools -->
+        <div class="section-header-row">
+          <h3>Growth Suite</h3>
+          <span class="see-all" onclick="switchTab('tools')">Open Tools</span>
+        </div>
+
+        <div class="tools-quick-grid">
+          <div class="tool-quick-card" onclick="switchTab('tools')">
+            <div class="tool-quick-icon tool-icon-purple">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div class="tool-quick-title">Viral Hook AI</div>
+            <div class="tool-quick-desc">Generate 3s hooks for your industry</div>
+          </div>
+          <div class="tool-quick-card" onclick="switchTab('tools'); setTimeout(() => document.querySelectorAll('.tool-tab-btn')[1].click(), 100);">
+            <div class="tool-quick-icon tool-icon-orange">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <div class="tool-quick-title">Scope Calculator</div>
+            <div class="tool-quick-desc">Instant pricing proposal for video batches</div>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             WHY CHOOSE ROMIC MEDIA SECTION
+             ============================================================ -->
+        <div class="section-header-row" style="margin-top: 24px;">
+          <h3>Why Choose <span class="gradient-text">Romic Media</span>?</h3>
+          <span class="see-all" onclick="switchTab('services')">All Services</span>
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:-6px; margin-bottom:14px;">
+          We pair cutting-edge digital aesthetics with authentic execution to ensure real results.
+        </p>
+
+        <!-- Why Card 1 -->
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon-box why-icon-purple">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <div class="why-title">All-in-One Digital Marketing Solutions</div>
+          </div>
+          <div class="why-desc">
+            From concept brainstorming and detailed scripting to visual production and targeted distribution. We run the complete pipeline without middle-men.
+          </div>
+        </div>
+
+        <!-- Why Card 2 -->
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon-box why-icon-pink">
+              <i class="fa-solid fa-circle-play"></i>
+            </div>
+            <div class="why-title">Video-First Strategies for Modern Platforms</div>
+          </div>
+          <div class="why-desc">
+            Social algorithms favor Reels, Shorts, and TikTok formats. We build video campaigns optimized for hook retention and shareability.
+          </div>
+        </div>
+
+        <!-- Why Card 3 -->
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon-box why-icon-orange">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <div class="why-title">Perfect Fusion of Performance & Creativity</div>
+          </div>
+          <div class="why-desc">
+            We believe in people over products. Our concepts use real creators and dynamic representations to earn immediate audience trust.
+          </div>
+        </div>
+
+        <!-- Why Card 4 -->
+        <div class="why-card">
+          <div class="why-card-top">
+            <div class="why-icon-box why-icon-green">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="why-title">ROI-Focused Marketing & Influencer Campaigns</div>
+          </div>
+          <div class="why-desc">
+            We are a performance creative house. Every campaign is designed with a strict conversion, reach, or tracking objective in mind.
+          </div>
+        </div>
+
+        <!-- ============================================================
+             OUR 4-STEP VIRAL PRODUCTION PIPELINE
+             ============================================================ -->
+        <div class="section-header-row" style="margin-top: 24px;">
+          <h3>Our Production <span class="gradient-text">Pipeline</span></h3>
+          <span class="see-all" onclick="switchTab('tracker')">Track Order</span>
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:-6px; margin-bottom:14px;">
+          How we turn raw ideas into viral, scroll-stopping content.
+        </p>
+
+        <div class="pipeline-step-card">
+          <div class="pipeline-num">01</div>
+          <div class="pipeline-content">
+            <h4>Concept & Hook Scripting</h4>
+            <p>Audience psychology research and writing the 0-3 second retention hooks that stop the scroll.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step-card">
+          <div class="pipeline-num">02</div>
+          <div class="pipeline-content">
+            <h4>Cinematic Production & Shoot</h4>
+            <p>4K camera gear, macro lighting, FPV drones, and on-set creative direction.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step-card">
+          <div class="pipeline-num">03</div>
+          <div class="pipeline-content">
+            <h4>High-Retention Editing & Sound FX</h4>
+            <p>Dynamic subtitles, pop sound design, color grading, and speed ramping.</p>
+          </div>
+        </div>
+
+        <div class="pipeline-step-card">
+          <div class="pipeline-num">04</div>
+          <div class="pipeline-content">
+            <h4>Distribution & Algorithmic Scaling</h4>
+            <p>Multi-platform scheduling, hashtag optimization, and tracking ROI analytics.</p>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             INDUSTRIES WE TRANSFORM
+             ============================================================ -->
+        <div class="section-header-row" style="margin-top: 22px;">
+          <h3>Industries We <span class="gradient-text">Transform</span></h3>
+        </div>
+
+        <div class="industries-tag-cloud">
+          <span class="industry-chip-pill"><i class="fa-solid fa-building"></i> Luxury Real Estate</span>
+          <span class="industry-chip-pill"><i class="fa-solid fa-car"></i> Automotive & Supercars</span>
+          <span class="industry-chip-pill"><i class="fa-solid fa-utensils"></i> Food & Hospitality</span>
+          <span class="industry-chip-pill"><i class="fa-solid fa-cart-shopping"></i> E-commerce & Brands</span>
+          <span class="industry-chip-pill"><i class="fa-solid fa-dumbbell"></i> Gym & Fitness</span>
+          <span class="industry-chip-pill"><i class="fa-solid fa-microphone"></i> Personal Brands & CEOs</span>
+        </div>
+
+        <!-- Brands Marquee Strip -->
+        <div class="brand-strip-container">
+          <div class="brand-strip-title">Trusted By Leading Brands Across UK & GCC</div>
+          <div class="brand-scroll-track">
+            <span class="brand-chip">M. Shapiro Real Estate</span>
+            <span class="brand-chip">Gongcha UK</span>
+            <span class="brand-chip">London Motor Sports</span>
+            <span class="brand-chip">Continental Car Hire</span>
+            <span class="brand-chip">Chai Khass</span>
+            <span class="brand-chip">Sultan Restaurant</span>
+            <span class="brand-chip">Techbuzz</span>
+            <span class="brand-chip">CrispKing</span>
+            <span class="brand-chip">Snackline Foods</span>
+          </div>
+        </div>
+
+        <!-- ============================================================
+             CLIENT REVIEWS CAROUSEL
+             ============================================================ -->
+        <div class="section-header-row">
+          <h3>What Our <span class="gradient-text">Clients Say</span></h3>
+          <div class="review-nav-arrows">
+            <button class="review-arrow-btn" onclick="scrollReviews('left')" title="Previous Review"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="review-arrow-btn" onclick="scrollReviews('right')" title="Next Review"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="app-reviews-scroller">
+          <!-- Review 1 -->
+          <div class="app-review-card">
+            <div>
+              <div class="app-review-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="app-review-quote">
+                "Romic Media really knows how to make your brand stand out. The team is super creative and always gets the latest trends. I was amazed at how quickly they delivered our content!"
+              </div>
+            </div>
+            <div class="app-review-author">
+              <span>M. Shapiro Real Estate</span>
+              <span class="app-verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="app-review-card">
+            <div>
+              <div class="app-review-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="app-review-quote">
+                "I absolutely love working with Romic Media. They handled our social media campaigns perfectly, and our engagement skyrocketed. Honest team and very easy to communicate with."
+              </div>
+            </div>
+            <div class="app-review-author">
+              <span>Gongcha UK</span>
+              <span class="app-verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="app-review-card">
+            <div>
+              <div class="app-review-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="app-review-quote">
+                "These guys are pros! From concept to execution, everything was smooth. Our video content looks amazing, and our followers are loving it. I highly recommend them!"
+              </div>
+            </div>
+            <div class="app-review-author">
+              <span>London Motor Sports</span>
+              <span class="app-verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="app-review-card">
+            <div>
+              <div class="app-review-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <div class="app-review-quote">
+                "Super creative team. We hired them for short-form video production and influencer campaigns, and it was a total success. Our reach compounded fast!"
+              </div>
+            </div>
+            <div class="app-review-author">
+              <span>Continental Car Hire</span>
+              <span class="app-verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Home Bottom Strategy Booking Card -->
+        <div class="card" style="text-align:center; background:linear-gradient(135deg, rgba(123,47,255,0.22), rgba(255,45,120,0.18)); border-color:rgba(123,47,255,0.4); padding:20px 16px; margin-top:10px;">
+          <div style="font-size:10px; font-weight:800; text-transform:uppercase; color:var(--accent-orange); letter-spacing:1px; margin-bottom:4px;">
+            READY TO GROW?
+          </div>
+          <div style="font-family:var(--font-title); font-size:18px; font-weight:800; margin-bottom:6px;">
+            Let's Create Something <span class="gradient-text">Viral</span>
+          </div>
+          <p style="font-size:11px; color:#ccc; margin-bottom:14px; line-height:1.5;">
+            Book a direct strategy call with Romic Media's creative directors to scale your brand's digital presence.
+          </p>
+          <a href="https://wa.me/923209670625?text=Hi%20Romic%20Media,%20I%20am%20interested%20in%20scaling%20my%20brand%20with%20your%20agency." target="_blank" class="btn-primary" style="display:inline-flex;">
+            <i class="fa-brands fa-whatsapp"></i> Chat On WhatsApp (0320 967 0625)
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ============================================================
+           TAB 2: VIRAL VIDEOS HUB (YOUR VIRAL VIDEOS!)
+           ============================================================ -->
+      <section class="app-screen" id="screen-videos">
+        <div class="screen-header">
+          <span class="screen-tag">VIRAL VAULT</span>
+          <h2 class="screen-title">Our Viral <span class="gradient-text">Videos</span></h2>
+          <p class="screen-subtitle">High-impact short-form videos & campaigns produced by Romic Media.</p>
+        </div>
+
+        <!-- Promoted Hero Video Player Card -->
+        <div class="video-hero-card" style="height:360px;" onclick="openReelModal('dropout-to-agency')">
+          <video class="native-video-player" playsinline autoplay muted loop preload="metadata">
+            <source src="video/From university dropout to building a global content business and documenting every step of the .mp4" type="video/mp4">
+          </video>
+          <div class="video-controls-overlay">
+            <div class="video-top-bar">
+              <span class="video-live-pill"><i class="fa-solid fa-fire"></i> FEATURED REEL</span>
+              <span style="background:rgba(0,0,0,0.6); padding:4px 8px; border-radius:var(--radius-full); font-size:10px; font-weight:700;"><i class="fa-solid fa-play"></i> 2.4M Views</span>
+            </div>
+            <div class="video-play-center-btn">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+            <div class="video-bottom-info">
+              <div class="video-title-main">From Dropout to Global Agency</div>
+              <div class="video-desc-sub">Tap to play full-screen with sound & controls</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Viral Videos Grid -->
+        <div class="section-header-row">
+          <h3>Viral Video Portfolio</h3>
+          <span class="see-all" onclick="showToast('Tap any card to watch in vertical reel player!')">6 Videos</span>
+        </div>
+
+        <div class="insta-reels-grid">
+
+          <!-- Video 1: User's Dropout Video -->
+          <div class="insta-reel-card" onclick="openReelModal('dropout-to-agency')">
+            <video class="insta-reel-thumb" muted loop playsinline preload="metadata">
+              <source src="video/From university dropout to building a global content business and documenting every step of the .mp4" type="video/mp4">
+            </video>
+            <div class="insta-reel-overlay">
+              <div class="insta-views-badge">
+                <i class="fa-solid fa-play"></i> 2.4M
+              </div>
+              <div class="insta-reel-play-icon">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <div class="insta-client-tag">@romicmedia</div>
+                <div class="insta-caption-snippet">From university dropout to global content business...</div>
+                <div class="insta-reel-bottom">
+                  <span><i class="fa-solid fa-heart" style="color:var(--accent-pink)"></i> 84.5K</span>
+                  <span><i class="fa-solid fa-comment"></i> 2,490</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 2: London Motor Sports -->
+          <div class="insta-reel-card" onclick="openReelModal('london-motorsports')">
+            <img src="images/02dg.png" alt="London Motor Sports" class="insta-reel-thumb">
+            <div class="insta-reel-overlay">
+              <div class="insta-views-badge">
+                <i class="fa-solid fa-play"></i> 3.1M
+              </div>
+              <div class="insta-reel-play-icon">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <div class="insta-client-tag">@londonmotorsports</div>
+                <div class="insta-caption-snippet">Raw V10 Lamborghini soundtrack meets FPV drone tracking...</div>
+                <div class="insta-reel-bottom">
+                  <span><i class="fa-solid fa-heart" style="color:var(--accent-pink)"></i> 115K</span>
+                  <span><i class="fa-solid fa-comment"></i> 3,890</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 3: M. Shapiro Real Estate -->
+          <div class="insta-reel-card" onclick="openReelModal('shapiro-penthouse')">
+            <img src="images/01VC.png" alt="M. Shapiro Real Estate" class="insta-reel-thumb">
+            <div class="insta-reel-overlay">
+              <div class="insta-views-badge">
+                <i class="fa-solid fa-play"></i> 1.8M
+              </div>
+              <div class="insta-reel-play-icon">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <div class="insta-client-tag">@m.shapiro.realestate</div>
+                <div class="insta-caption-snippet">Exclusive £4.2M London Penthouse tour with engineered 3s hook...</div>
+                <div class="insta-reel-bottom">
+                  <span><i class="fa-solid fa-heart" style="color:var(--accent-pink)"></i> 48.2K</span>
+                  <span><i class="fa-solid fa-comment"></i> 1,240</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 4: Gongcha UK -->
+          <div class="insta-reel-card" onclick="openReelModal('gongcha-autumn')">
+            <img src="images/03SM.png" alt="Gongcha UK" class="insta-reel-thumb">
+            <div class="insta-reel-overlay">
+              <div class="insta-views-badge">
+                <i class="fa-solid fa-play"></i> 940K
+              </div>
+              <div class="insta-reel-play-icon">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <div class="insta-client-tag">@gongcha_uk</div>
+                <div class="insta-caption-snippet">Crispiest ASMR Brown Sugar Bubble Tea pour in London...</div>
+                <div class="insta-reel-bottom">
+                  <span><i class="fa-solid fa-heart" style="color:var(--accent-pink)"></i> 32.5K</span>
+                  <span><i class="fa-solid fa-comment"></i> 820</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 5: Chai Khass -->
+          <div class="insta-reel-card" onclick="openReelModal('chai-khass-karak')">
+            <img src="images/04IM.png" alt="Chai Khass" class="insta-reel-thumb">
+            <div class="insta-reel-overlay">
+              <div class="insta-views-badge">
+                <i class="fa-solid fa-play"></i> 720K
+              </div>
+              <div class="insta-reel-play-icon">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <div class="insta-client-tag">@chaikhassofficial</div>
+                <div class="insta-caption-snippet">Traditional clay pot Karak Chai simmering in slow motion...</div>
+                <div class="insta-reel-bottom">
+                  <span><i class="fa-solid fa-heart" style="color:var(--accent-pink)"></i> 24.1K</span>
+                  <span><i class="fa-solid fa-comment"></i> 610</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 6: Sultan Restaurant -->
+          <div class="insta-reel-card" onclick="openReelModal('sultan-grill')">
+            <img src="images/07pv.png" alt="Sultan Restaurant" class="insta-reel-thumb">
+            <div class="insta-reel-overlay">
+              <div class="insta-views-badge">
+                <i class="fa-solid fa-play"></i> 540K
+              </div>
+              <div class="insta-reel-play-icon">
+                <i class="fa-solid fa-play"></i>
+              </div>
+              <div>
+                <div class="insta-client-tag">@sultanrestaurant</div>
+                <div class="insta-caption-snippet">Sizzling Turkish mix grill platter right off charcoal embers...</div>
+                <div class="insta-reel-bottom">
+                  <span><i class="fa-solid fa-heart" style="color:var(--accent-pink)"></i> 18.9K</span>
+                  <span><i class="fa-solid fa-comment"></i> 430</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Add More Videos Helper Box -->
+        <div class="card" style="background:linear-gradient(135deg, rgba(123,47,255,0.15), rgba(255,45,120,0.15)); border-color:rgba(123,47,255,0.35); text-align:center;">
+          <div style="font-size:10px; font-weight:800; text-transform:uppercase; color:var(--accent-cyan); letter-spacing:1px; margin-bottom:4px;">
+            VIDEOS DIRECTORY READY
+          </div>
+          <div style="font-family:var(--font-title); font-size:16px; font-weight:800; margin-bottom:6px;">
+            Add More Videos Anytime
+          </div>
+          <div style="font-size:11px; color:#ccc; margin-bottom:14px;">
+            Simply drop any <code>.mp4</code> videos into your <code>romicapp/video/</code> folder to showcase them to your clients!
+          </div>
+          <a href="https://wa.me/923209670625?text=Hi%20Romic%20Media,%20I%20want%20to%20produce%20viral%20videos%20for%20my%20brand." target="_blank" class="btn-primary" style="display:inline-flex;">
+            <i class="fa-brands fa-whatsapp"></i> Inquire Viral Video Production
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ============================================================
+           TAB 3: FULL WEBSITE SERVICES PAGE (COMPLETE 11 SECTIONS)
+           ============================================================ -->
+      <section class="app-screen" id="screen-services">
+        <div class="screen-header">
+          <span class="screen-tag">CAPABILITIES</span>
+          <h2 class="screen-title">Our <span class="gradient-text">Services</span></h2>
+          <p class="screen-subtitle">Everything you need to grow your brand — all under one roof.</p>
+        </div>
+
+        <!-- 01 / VIRAL CREATIVE -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">01 / VIRAL CREATIVE</span>
+            <h3 class="full-service-title">Viral Content Creation & Video Editing</h3>
+          </div>
+          <p class="full-service-desc">
+            We make your audience stop with our engineered high-impact videos that capture attention within seconds. From the initial spark to the final edit, our team handles the entire production process for unmatched growth across YouTube, Instagram, and TikTok.
+          </p>
+          <img src="images/01VC.png" alt="Viral Content Creation" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Concept development</li>
+            <li><i class="fa-solid fa-square-check"></i> Trend-based content</li>
+            <li><i class="fa-solid fa-square-check"></i> Hook-driven storytelling</li>
+            <li><i class="fa-solid fa-square-check"></i> Platform optimization</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Viral Content Creation')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 02 / GRAPHICS & VFX -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">02 / GRAPHICS & VFX</span>
+            <h3 class="full-service-title">Social Media Marketing</h3>
+          </div>
+          <p class="full-service-desc">
+            Our expert team manages campaigns that blend technical precision, data-driven strategies, and creative storytelling to optimize every step of your digital journey.
+          </p>
+          <img src="images/02dg.png" alt="Social Media Marketing" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Daily Report</li>
+            <li><i class="fa-solid fa-square-check"></i> Multi-format campaigns</li>
+            <li><i class="fa-solid fa-square-check"></i> Paid ad creatives</li>
+            <li><i class="fa-solid fa-square-check"></i> Performance tracking</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Social Media Marketing')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 03 / SOCIAL ENGINE -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">03 / SOCIAL ENGINE</span>
+            <h3 class="full-service-title">Social Media Management</h3>
+          </div>
+          <p class="full-service-desc">
+            Keeping your brand visible and engaged, our end-to-end services include planning, posting, engagement, and analytics so you can focus on running your business and growth.
+          </p>
+          <img src="images/03SM.png" alt="Social Media Management" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Full account management</li>
+            <li><i class="fa-solid fa-square-check"></i> TikTok strategy</li>
+            <li><i class="fa-solid fa-square-check"></i> Content calendar</li>
+            <li><i class="fa-solid fa-square-check"></i> Community engagement</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Social Media Management')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 04 / CREATOR HUBS -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">04 / CREATOR HUBS</span>
+            <h3 class="full-service-title">Influencer Marketing</h3>
+          </div>
+          <p class="full-service-desc">
+            Our ROI-centered campaigns are designed in collaboration with top content creators. From outreach to execution, we promise authentic partnerships that build trust and expand reach.
+          </p>
+          <img src="images/04IM.png" alt="Influencer Marketing" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Creator sourcing</li>
+            <li><i class="fa-solid fa-square-check"></i> Campaign management</li>
+            <li><i class="fa-solid fa-square-check"></i> ROI tracking</li>
+            <li><i class="fa-solid fa-square-check"></i> UAE & GCC network</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Influencer Marketing')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 05 / STRATEGISTS -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">05 / STRATEGISTS</span>
+            <h3 class="full-service-title">SEO Content Writing & Strategy</h3>
+          </div>
+          <p class="full-service-desc">
+            Expect higher traffic, better rankings, and real conversions as we craft SEO-optimized blog posts and website copies.
+          </p>
+          <img src="images/05ss.png" alt="SEO Content Writing & Strategy" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Brand positioning</li>
+            <li><i class="fa-solid fa-square-check"></i> Digital PR</li>
+            <li><i class="fa-solid fa-square-check"></i> Content strategy</li>
+            <li><i class="fa-solid fa-square-check"></i> Platform-specific planning</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('SEO Content Writing & Strategy')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 06 / ARCHITECTURE -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">06 / ARCHITECTURE</span>
+            <h3 class="full-service-title">Web Development</h3>
+          </div>
+          <p class="full-service-desc">
+            We design and develop modern, responsive, and user-friendly websites that represent your brand and support your business goals. From corporate sites to ecommerce stores.
+          </p>
+          <img src="images/05WD.png" alt="Web Development" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Responsive design</li>
+            <li><i class="fa-solid fa-square-check"></i> Corporate & Ecommerce</li>
+            <li><i class="fa-solid fa-square-check"></i> Performance speed</li>
+            <li><i class="fa-solid fa-square-check"></i> CRO focus</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Web Development')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 07 / LIVE PRODUCTION -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">07 / LIVE PRODUCTION</span>
+            <h3 class="full-service-title">Photography & Videography</h3>
+          </div>
+          <p class="full-service-desc">
+            We produce high-quality photo and video content tailored to your brand. From product shoots to brand films, our production team handles everything on set and in post.
+          </p>
+          <img src="images/07pv.png" alt="Photography & Videography" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Product photography</li>
+            <li><i class="fa-solid fa-square-check"></i> Brand films</li>
+            <li><i class="fa-solid fa-square-check"></i> On-set production</li>
+            <li><i class="fa-solid fa-square-check"></i> Post-production</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Photography & Videography')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 08 / POST PRODUCTION -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">08 / POST PRODUCTION</span>
+            <h3 class="full-service-title">Video Editing</h3>
+          </div>
+          <p class="full-service-desc">
+            We turn raw footage into high-impact, platform-ready videos. Our editing focuses on strong hooks, clean transitions, captions, sound design, and pacing matching current trends.
+          </p>
+          <img src="images/08ve.png" alt="Video Editing" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Reels & TikTok editing</li>
+            <li><i class="fa-solid fa-square-check"></i> Captions & sound design</li>
+            <li><i class="fa-solid fa-square-check"></i> Hook-first structure</li>
+            <li><i class="fa-solid fa-square-check"></i> Brand story videos</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Video Editing')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 09 / CREATIVE ASSETS -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">09 / CREATIVE ASSETS</span>
+            <h3 class="full-service-title">Graphic Designing</h3>
+          </div>
+          <p class="full-service-desc">
+            Our graphic design is built to communicate, not just decorate. From social media creatives and ad visuals to brand assets, we create graphics aligned with your brand identity.
+          </p>
+          <img src="images/09gd.png" alt="Graphic Designing" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Social media creatives</li>
+            <li><i class="fa-solid fa-square-check"></i> Ad visuals</li>
+            <li><i class="fa-solid fa-square-check"></i> Brand identity assets</li>
+            <li><i class="fa-solid fa-square-check"></i> Digital design</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Graphic Designing')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 10 / ORGANIC GROWTH -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">10 / ORGANIC GROWTH</span>
+            <h3 class="full-service-title">Organic Audience Growth</h3>
+          </div>
+          <p class="full-service-desc">
+            Transform your audience into loyal customers using our organic content systems, audience psychology, and platform-specific strategies. Zero ad spend needed.
+          </p>
+          <img src="images/audiancegrowth.jpg" alt="Organic Audience Growth" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Organic content systems</li>
+            <li><i class="fa-solid fa-square-check"></i> Audience psychology</li>
+            <li><i class="fa-solid fa-square-check"></i> Platform-specific strategy</li>
+            <li><i class="fa-solid fa-square-check"></i> Zero ad spend required</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Organic Audience Growth')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- 11 / LONG-TERM PLANNING -->
+        <div class="full-service-section">
+          <div class="full-service-header">
+            <span class="service-num-badge">11 / LONG-TERM PLANNING</span>
+            <h3 class="full-service-title">Content Strategy</h3>
+          </div>
+          <p class="full-service-desc">
+            Scale your brand sustainably with our long-term strategies emphasizing inbound growth, consistency, and audience behavior — built to compound results over time, not just one-off wins.
+          </p>
+          <img src="images/contentstrategy.jpg" alt="Content Strategy" class="service-banner-img">
+          <ul class="service-features-list">
+            <li><i class="fa-solid fa-square-check"></i> Inbound growth engines</li>
+            <li><i class="fa-solid fa-square-check"></i> Sustainable consistency</li>
+            <li><i class="fa-solid fa-square-check"></i> Audience behavior research</li>
+            <li><i class="fa-solid fa-square-check"></i> Compounding reach</li>
+          </ul>
+          <div class="service-action-row">
+            <button class="btn-service-inquire" onclick="inquireServiceWhatsApp('Content Strategy')">
+              <i class="fa-brands fa-whatsapp"></i> Inquire This Service
+            </button>
+          </div>
+        </div>
+
+        <!-- Closing CTA Box -->
+        <div class="card" style="text-align:center; background:linear-gradient(135deg, rgba(123,47,255,0.25), rgba(255,45,120,0.2)); border-color:rgba(123,47,255,0.4); margin-top:20px;">
+          <div style="font-family:var(--font-title); font-size:18px; font-weight:800; margin-bottom:6px;">
+            Ready to Scale Your Brand?
+          </div>
+          <p style="font-size:12px; color:#ccc; margin-bottom:16px;">
+            Schedule a 1-on-1 strategy call with our creative directors to map out your viral roadmap.
+          </p>
+          <a href="https://wa.me/923209670625?text=Hi%20Romic%20Media,%20I%20want%20to%20schedule%20a%20strategy%20call%20for%20my%20brand." target="_blank" class="btn-primary" style="display:inline-flex;">
+            <i class="fa-brands fa-whatsapp"></i> Chat On WhatsApp
+          </a>
+        </div>
+
+      </section>
+
+      <!-- ============================================================
+           TAB 4: AI & GROWTH TOOLS
+           ============================================================ -->
+      <section class="app-screen" id="screen-tools">
+        <div class="screen-header">
+          <span class="screen-tag">UTILITY HUB</span>
+          <h2 class="screen-title">Creator & Brand <span class="gradient-text">Tools</span></h2>
+          <p class="screen-subtitle">Interactive tools to plan your viral content and calculate exact campaign budgets.</p>
+        </div>
+
+        <div class="tool-switcher-tabs">
+          <button class="tool-tab-btn active" data-pane="pane-hook-ai">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Viral Hook AI
+          </button>
+          <button class="tool-tab-btn" data-pane="pane-calculator">
+            <i class="fa-solid fa-calculator"></i> Scope Estimator
+          </button>
+        </div>
+
+        <!-- PANE 1: AI Hook Generator -->
+        <div class="tool-pane active" id="pane-hook-ai">
+          <span class="input-label">Select Your Industry / Niche</span>
+          <div class="chip-selector" id="niche-chips">
+            <span class="choice-chip active" data-value="Real Estate">🏠 Real Estate</span>
+            <span class="choice-chip" data-value="Gym & Fitness">💪 Gym & Fitness</span>
+            <span class="choice-chip" data-value="E-commerce">🛍️ E-commerce</span>
+            <span class="choice-chip" data-value="Hospitality">🍔 Food & Cafe</span>
+            <span class="choice-chip" data-value="Tech / SaaS">💻 Tech / SaaS</span>
+          </div>
+
+          <span class="input-label">Select Video Objective / Tone</span>
+          <div class="chip-selector" id="tone-chips">
+            <span class="choice-chip active" data-value="Shock & Curiosity">🔥 Shock / Curiosity</span>
+            <span class="choice-chip" data-value="Story & Relatable">📖 Story / Relatable</span>
+            <span class="choice-chip" data-value="Problem & Solution">💡 Problem / Solution</span>
+          </div>
+
+          <button class="tool-action-btn" onclick="generateHooks()">
+            <i class="fa-solid fa-bolt"></i> Generate 3-Second Viral Hooks
+          </button>
+
+          <div id="hook-results">
+            <div class="hook-result-card">
+              <div class="hook-card-header">
+                <span class="hook-badge">High Viral Potential</span>
+                <button class="copy-hook-btn" onclick="copyHookText('Never buy a property in 2026 until you check this 1 hidden clause...')">
+                  <i class="fa-regular fa-copy"></i> Copy
+                </button>
+              </div>
+              <div class="hook-text">"Never buy a property in 2026 until you check this 1 hidden clause..."</div>
+              <div class="script-desc"><strong>Visual Direction:</strong> Show luxury exterior -> Quick zoom into contract -> Reveal the £20,000 saving.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 2: Interactive Cost & Scope Calculator -->
+        <div class="tool-pane" id="pane-calculator">
+          <div class="slider-container">
+            <div class="slider-header">
+              <span>Short-form Videos (Monthly)</span>
+              <span class="slider-val" id="video-count-display">8 Videos / Month</span>
+            </div>
+            <input type="range" class="styled-slider" id="video-count-slider" min="4" max="30" step="2" value="8">
+          </div>
+
+          <span class="input-label">Select Optional Add-ons</span>
+
+          <label class="addon-row">
+            <div class="addon-info">
+              <span class="addon-title">4K On-Location Shoot</span>
+              <span class="addon-sub">Full day filming with cinema camera & drone</span>
+            </div>
+            <input type="checkbox" class="addon-checkbox" id="addon-shoot" checked>
+          </label>
+
+          <label class="addon-row">
+            <div class="addon-info">
+              <span class="addon-title">3D / CGI & VFX Elements</span>
+              <span class="addon-sub">Custom product animations and surreal effects</span>
+            </div>
+            <input type="checkbox" class="addon-checkbox" id="addon-vfx">
+          </label>
+
+          <label class="addon-row">
+            <div class="addon-info">
+              <span class="addon-title">48-Hour Express Delivery</span>
+              <span class="addon-sub">Priority turnaround for fast-moving trends</span>
+            </div>
+            <input type="checkbox" class="addon-checkbox" id="addon-express">
+          </label>
+
+          <div class="quote-summary-card">
+            <div class="quote-label">Estimated Monthly Investment</div>
+            <div class="quote-price" id="quote-price-display">£820 / mo</div>
+            <div class="quote-details" id="quote-summary-details">8 Videos + 4K On-Location Shoot</div>
+            <a href="https://wa.me/923209670625" target="_blank" class="whatsapp-quote-btn" id="quote-whatsapp-btn">
+              <i class="fa-brands fa-whatsapp"></i> Lock In Quote on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           TAB 5: CLIENT RADAR & VIP DESK
+           ============================================================ -->
+      <section class="app-screen" id="screen-tracker">
+        <div class="screen-header">
+          <span class="screen-tag">CLIENT RADAR</span>
+          <h2 class="screen-title">Live Campaign <span class="gradient-text">Tracker</span></h2>
+          <p class="screen-subtitle">Track your video production pipeline from briefing to final master export.</p>
+        </div>
+
+        <div class="tracker-search-box">
+          <input type="text" class="tracker-input" id="tracker-code-input" placeholder="Enter Project Code (e.g. ROMIC-2026)" value="ROMIC-2026" onkeydown="if(event.key==='Enter') lookupProject()">
+          <i class="fa-solid fa-magnifying-glass tracker-search-icon" onclick="lookupProject()" style="cursor:pointer;"></i>
+        </div>
+
+        <div class="sample-presets-row">
+          <span>Presets:</span>
+          <span class="preset-tag" onclick="lookupProject('ROMIC-2026')">ROMIC-2026</span>
+          <span class="preset-tag" onclick="lookupProject('UK-GONGCHA')">UK-GONGCHA</span>
+          <span class="preset-tag" onclick="lookupProject('LONDON-MOTORS')">LONDON-MOTORS</span>
+        </div>
+
+        <!-- Active Project Card -->
+        <div class="project-dashboard-card">
+          <div class="project-card-head">
+            <div>
+              <div class="project-client-name" id="tracker-client">M. Shapiro Real Estate</div>
+              <div class="project-name" id="tracker-title">Dubai Luxury Villa Viral Launch</div>
+            </div>
+            <span class="project-status-badge" id="tracker-status">First Cut Ready</span>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-meta">
+              <span>Overall Progress</span>
+              <strong style="color:var(--accent-pink);" id="tracker-percent">75% Completed</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar-fill" id="tracker-bar" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <div class="timeline-list" id="tracker-timeline">
+            <div class="timeline-item done">
+              <div class="timeline-node"><i class="fa-solid fa-check"></i></div>
+              <div class="timeline-title">Briefing & Storyboard Approved</div>
+              <div class="timeline-date">Aug 28, 2026</div>
+            </div>
+            <div class="timeline-item done">
+              <div class="timeline-node"><i class="fa-solid fa-check"></i></div>
+              <div class="timeline-title">4K Drone & Interior Footage Shot</div>
+              <div class="timeline-date">Sept 02, 2026</div>
+            </div>
+            <div class="timeline-item done active">
+              <div class="timeline-node"><i class="fa-solid fa-check"></i></div>
+              <div class="timeline-title">Viral Hook Editing & Sound Mix</div>
+              <div class="timeline-date">Sept 06, 2026</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-node"><i class="fa-solid fa-check"></i></div>
+              <div class="timeline-title">Client Review & Feedback</div>
+              <div class="timeline-date">In Progress (Cut #1)</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-node"><i class="fa-solid fa-check"></i></div>
+              <div class="timeline-title">Final 4K Master Export & Distribution</div>
+              <div class="timeline-date">Estimated Sept 12</div>
+            </div>
+          </div>
+
+          <div class="draft-preview-box">
+            <div class="draft-info">
+              <div class="draft-thumb"><i class="fa-solid fa-video"></i></div>
+              <div>
+                <div class="draft-name" id="tracker-file-name">VILLA_CUT_01_DRAFT_PREVIEW.mp4</div>
+                <div class="draft-size" id="tracker-file-size">48.2 MB • H.264 1080x1920</div>
+              </div>
+            </div>
+            <div class="preview-actions">
+              <button class="btn-mini accent" onclick="playDraftVideo()"><i class="fa-solid fa-play"></i> Watch</button>
+              <button class="btn-mini" onclick="requestRevision()"><i class="fa-solid fa-comment-dots"></i> Revise</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIP WhatsApp Direct Desk -->
+        <div class="card" style="text-align:center; background:linear-gradient(135deg, rgba(37,211,102,0.15), rgba(123,47,255,0.15)); border-color:rgba(37,211,102,0.35);">
+          <div style="font-family:var(--font-title); font-size:16px; font-weight:800; margin-bottom:4px;">VIP Client WhatsApp Desk</div>
+          <div style="font-size:11px; color:#ccc; margin-bottom:12px;">Instant direct communication with assigned creative editors.</div>
+          <a href="https://wa.me/923209670625" target="_blank" class="whatsapp-quote-btn" style="display:inline-flex;">
+            <i class="fa-brands fa-whatsapp"></i> Chat On WhatsApp (0320 967 0625)
+          </a>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-tab active" data-tab="home">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+        <div class="nav-indicator"></div>
+      </button>
+
+      <button class="nav-tab" data-tab="videos">
+        <i class="fa-solid fa-circle-play"></i>
+        <span>Viral Videos</span>
+        <div class="nav-indicator"></div>
+      </button>
+
+      <button class="nav-tab" data-tab="services">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Services</span>
+        <div class="nav-indicator"></div>
+      </button>
+
+      <button class="nav-tab" data-tab="tools">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>AI Tools</span>
+        <div class="nav-indicator"></div>
+      </button>
+
+      <button class="nav-tab" data-tab="tracker">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Tracker</span>
+        <div class="nav-indicator"></div>
+      </button>
+    </nav>
+
+    <!-- Fullscreen Vertical Reel Player Modal (Plays real video!) -->
+    <div class="reel-modal-backdrop" id="reel-modal-backdrop">
+      <div class="reel-modal-media">
+        <video id="reel-modal-video" class="reel-modal-video" playsinline loop preload="auto">
+          <source src="video/From university dropout to building a global content business and documenting every step of the .mp4" type="video/mp4">
+        </video>
+
+        <!-- Top Progress Strip -->
+        <div class="reel-progress-strip">
+          <div class="reel-progress-fill" id="reel-progress-fill"></div>
+        </div>
+
+        <!-- Close Button -->
+        <button class="reel-modal-close" onclick="closeReelModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Sidebar Actions (Like, Comment, Sound, Share) -->
+        <div class="reel-sidebar-actions">
+          <button class="reel-action-btn" id="reel-like-action-btn" onclick="toggleReelLike()">
+            <i class="fa-solid fa-heart"></i>
+            <span id="reel-modal-likes">84.5K</span>
+          </button>
+          <button class="reel-action-btn" onclick="toggleReelSound()">
+            <i class="fa-solid fa-volume-high"></i>
+            <span>Sound</span>
+          </button>
+          <button class="reel-action-btn" onclick="showToast('Draft review sheet: 100% Client Approved!')">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span id="reel-modal-comments">2,490</span>
+          </button>
+          <button class="reel-action-btn" onclick="showToast('Video link copied!')">
+            <i class="fa-solid fa-share"></i>
+            <span>Share</span>
+          </button>
+        </div>
+
+        <!-- Reel Overlay Bottom Info -->
+        <div class="reel-modal-footer">
+          <div class="reel-footer-client">
+            <img src="Romic_Media_Logo.png" id="reel-footer-avatar" alt="Avatar">
+            <strong id="reel-footer-client">@romicmedia</strong>
+            <i class="fa-solid fa-circle-check" style="color:var(--accent-pink); font-size:11px;"></i>
+          </div>
+          <div class="reel-footer-caption" id="reel-footer-caption">
+            From university dropout to building a global content business and documenting every step of the journey.
+          </div>
+          <div class="reel-audio-tag">
+            <i class="fa-solid fa-music"></i>
+            <span id="reel-audio-title">Original Audio - Romic Media Production</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Floating In-App Toast -->
+    <div class="toast-msg" id="app-toast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="toast-text">Notification</span>
+    </div>
+
+  </div>
+
+  <!-- Core App Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
