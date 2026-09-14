@@ -122,12 +122,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Gradient Text Effect */
 .gradient-text {
-    background: linear-gradient(90deg, #B565FF 0%, #FF007A 50%, #FF6600 100%);
+    background: linear-gradient(90deg, #C084FC 0%, #FF2E93 46%, #FF7A00 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
     text-shadow: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
 }
 
 p {
@@ -576,7 +578,11 @@ section {
     margin-bottom: 22px;
     text-transform: uppercase;
     color: #FFFFFF;
-    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.65));
+}
+
+.hero-title-white {
+    color: #FFFFFF;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.95);
 }
 
 .hero-subtitle {

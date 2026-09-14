@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const soundToggle = document.getElementById('soundToggle');
     const soundIcon = document.getElementById('soundIcon');
 
+    
     if (heroVideo && soundToggle) {
         soundToggle.addEventListener('click', () => {
             if (heroVideo.muted) {
