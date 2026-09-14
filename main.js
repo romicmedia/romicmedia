@@ -1,25 +1,56 @@
+// Force page to always start at the very top (0, 0) on load/reload
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.classList.add('smooth-scroll');
+    }, 150);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
+
     // 1. Page Fade In
     document.body.classList.add('page-fade-in');
     setTimeout(() => {
         document.body.classList.add('animation-done');
     }, 700);
 
-    // 3. Floating Parallax Shapes (Hero Background)
-    const hero = document.querySelector('.hero-section');
-    const shapes = document.querySelectorAll('.shape');
-    if (hero && shapes.length > 0 && window.innerWidth > 1024) {
-        hero.addEventListener('mousemove', (e) => {
-            const { width, height } = hero.getBoundingClientRect();
-            const offX = (e.clientX - width / 2) / width;
-            const offY = (e.clientY - height / 2) / height;
-            
-            shapes.forEach((shape, index) => {
-                const depth = (index + 1) * 25;
-                const moveX = offX * depth;
-                const moveY = offY * depth;
-                shape.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
+    // 3. Hero Video Showcase & Sound Controller
+    const heroVideo = document.getElementById('heroVideo');
+    const soundToggle = document.getElementById('soundToggle');
+    const soundIcon = document.getElementById('soundIcon');
+
+    if (heroVideo && soundToggle) {
+        soundToggle.addEventListener('click', () => {
+            if (heroVideo.muted) {
+                heroVideo.muted = false;
+                if (soundIcon) {
+                    soundIcon.classList.remove('fa-volume-xmark');
+                    soundIcon.classList.add('fa-volume-high');
+                    soundIcon.style.color = 'var(--accent-green)';
+                }
+                soundToggle.style.borderColor = 'var(--accent-green)';
+            } else {
+                heroVideo.muted = true;
+                if (soundIcon) {
+                    soundIcon.classList.remove('fa-volume-high');
+                    soundIcon.classList.add('fa-volume-xmark');
+                    soundIcon.style.color = '';
+                }
+                soundToggle.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+            }
+        });
+
+        // Ensure video autoplays smoothly
+        heroVideo.play().catch(() => {
+            heroVideo.muted = true;
+            heroVideo.play().catch(() => {});
         });
     }
 

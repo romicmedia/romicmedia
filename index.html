@@ -3,44 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romic Media | Creative & Digital Media Agency</title>
-    <meta name="description" content="Romic Media is a full-service creative and digital media house specializing in viral content creation, digital marketing, TikTok management, web development, and ROI-focused campaigns.">
-    <meta property="og:title" content="Romic Media | Creative & Digital Media Agency">
-    <meta property="og:description" content="We Create Powerful, Innovative, Fun & Memorable Content. Everything under one roof.">
+    <title>Romic Media | Premier Creative & Viral Media Agency</title>
+    <meta name="description" content="Romic Media is a premier creative and digital media agency specializing in viral video production, TikTok scaling, 3D/VFX, and ROI-focused growth campaigns.">
+    <meta property="og:title" content="Romic Media | Creative & Viral Media Agency">
+    <meta property="og:description" content="We engineer scroll-stopping viral video, 3D/VFX, and unstoppable TikTok growth campaigns. Everything under one roof.">
     <meta property="og:image" content="/Romic_Media_Logo.png?v=2">
 
-<link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
-<link rel="manifest" href="/site.webmanifest">
-
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="/site.webmanifest">
     
-<link rel="canonical" href="https://romicmedia.com/" />
+    <link rel="canonical" href="https://romicmedia.com/" />
 
-<!-- 2. User ke liye (URL cleaner) -->
-<script>
-    if (window.location.search.includes('?p=')) {
-        const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-        window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
-    }
-</script>
+    <!-- Prevent automatic browser scroll jumping on load/refresh -->
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        if (window.location.hash) {
+            window.history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+        if (window.location.search.includes('?p=')) {
+            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+        }
+    </script>
     
     <!-- CSS and FontAwesome Icons -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- Floating Background Shapes -->
-    <div class="bg-blob-container">
-        <div class="bg-blob blob-1"></div>
-        <div class="bg-blob blob-2"></div>
-        <div class="bg-blob blob-3"></div>
-    </div>
+    <!-- Precision Ambient Background Lighting -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
 
     <!-- Header & Navigation -->
     <header>
@@ -55,16 +55,16 @@
                 <span></span>
             </button>
             
-                <ul class="nav-menu" id="nav-menu">
-  <li><a href="index.html" class="nav-link active">Home</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="services.html" class="nav-link">Services</a></li>
-      <li><a href="industries.html" class="nav-link">Industries</a></li>
-      <li><a href="faq.html" class="nav-link">FAQ</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
-      <li><a href="https://www.chatbase.co/B4U5oP-RhPYTHTbgzU2lm/help" target="_blank" class="nav-link">Romic AI Help</a></li>
-      <li><a href="blog.html" class="nav-link">Blog</a></li>
-    </ul>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="industries.html" class="nav-link">Industries</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="https://www.chatbase.co/B4U5oP-RhPYTHTbgzU2lm/help" target="_blank" class="nav-link">Romic AI Help</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
 
             <div class="nav-right-cta">
                 <a href="contact.html" class="btn btn-solid nav-cta">Let's Talk</a>
@@ -72,52 +72,143 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- High-Energy Agency Hero Section (100vh Matching Mockup) -->
     <section class="hero-section">
-        <div class="hero-bg-gradient"></div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-        
         <div class="hero-content">
+            <!-- Live Availability & Focus Badge -->
+            <div class="hero-badge-wrapper">
+                <div class="hero-live-pill">
+                    <span class="live-dot"></span>
+                    <span class="live-text">ACCEPTING Q2 / Q3 CLIENTS</span>
+                </div>
+                <div class="hero-category-tag">
+                    <span>VIRAL VIDEO</span> &bull; <span>TIKTOK SCALING</span> &bull; <span>3D / VFX</span>
+                </div>
+            </div>
+
+            <!-- Monumental Headline Matching Reference Layout -->
             <h1 class="hero-title">
-                We Create <span class="gradient-text"> Content That Gets Seen, Shared & </span> Remembered.
+                WE ENGINEER<br>
+                <span class="gradient-text">VIRAL CONTENT</span> THAT<br>
+                DOMINATES SCREENS.
             </h1>
+
             <p class="hero-subtitle">
-                Full-service creative and digital media house. Everything under one roof. We help brands stand out through scroll-stopping content.
+                Premier creative production and performance media powerhouse. We craft scroll-stopping video content, photorealistic 3D/VFX, and hyper-scalable TikTok strategies that turn views into explosive brand growth.
             </p>
+
+            <!-- High-Impact Dual CTAs -->
             <div class="hero-ctas">
-                <a href="about.html" class="btn btn-outline">Discover About Us</a>
-                <a href="contact.html" class="btn btn-solid">Contact Us</a>
+                <a href="contact.html" class="btn btn-solid hero-btn-main">
+                    <span>Start a Project</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="https://wa.me/923209670625" target="_blank" class="btn btn-outline hero-btn-sub">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Chat on WhatsApp</span>
+                </a>
             </div>
         </div>
-        
-        <a href="#stats-bar" class="scroll-indicator">
-            <span>Scroll Down</span>
+
+        <a href="#showcase" class="scroll-indicator">
+            <span>EXPLORE WORK</span>
             <div class="scroll-arrow"><i class="fa-solid fa-arrow-down"></i></div>
         </a>
     </section>
 
-    <!-- Stats Bar Section -->
+    <!-- Hero Cinema Showcase Section (Dynamic Video Centerpiece) -->
+    <section class="showcase-section" id="showcase">
+        <div class="hero-showcase-container">
+            <div class="showcase-glow-back"></div>
+            <div class="hero-showcase-card">
+                <div class="showcase-topbar">
+                    <div class="showcase-window-dots">
+                        <span class="wdot red"></span>
+                        <span class="wdot yellow"></span>
+                        <span class="wdot green"></span>
+                    </div>
+                    <div class="showcase-badge">
+                        <i class="fa-solid fa-record-vinyl fa-spin"></i>
+                        <span>ROMIC MEDIA // VIRAL SHOWREEL 2026</span>
+                    </div>
+                    <button class="sound-toggle-btn" id="soundToggle" aria-label="Toggle Sound">
+                        <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
+                        <span class="sound-wave">
+                            <span></span><span></span><span></span><span></span>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="showcase-video-wrapper" id="showcaseWrapper">
+                    <!-- Ambient Spotlight Behind Device -->
+                    <div class="phone-glow-ambient"></div>
+
+                    <!-- Sleek Flagship Mobile Reel Frame (Zero Crop, Full Face & Captions) -->
+                    <div class="showcase-phone-frame">
+                        <div class="phone-notch"></div>
+                        <video id="heroVideo" autoplay loop muted playsinline poster="new.png">
+                            <source src="video/showreel.mp4" type="video/mp4">
+                        </video>
+                        <div class="phone-glass-reflection"></div>
+                    </div>
+
+                    <!-- Live Achievement Pills (Desktop Floating / Mobile Grid) -->
+                    <div class="mobile-badges-grid">
+                        <div class="floating-badge badge-top-left">
+                            <div class="badge-icon"><i class="fa-solid fa-fire"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-val">250M+</span>
+                                <span class="badge-lbl">Organic Views</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-top-right">
+                            <div class="badge-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-val">12.4x</span>
+                                <span class="badge-lbl">Avg. TikTok ROAS</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom-left">
+                            <div class="badge-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-val">3D / VFX</span>
+                                <span class="badge-lbl">Cinema Grade</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-bottom-right">
+                            <div class="badge-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-val">85+</span>
+                                <span class="badge-lbl">Brands Scaled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Station Bar Section -->
     <section class="stats-bar-section" id="stats-bar">
         <div class="stats-container">
             <div class="stat-item">
-                <h3><span class="counter-number" data-target="50">0</span>+</h3>
-                <p>Projects Delivered</p>
+                <h3><span class="counter-number" data-target="250">0</span>M+</h3>
+                <p>Organic Views Delivered</p>
             </div>
             <div class="stat-item">
-                <h3><span class="counter-number" data-target="10">0</span>+</h3>
-                <p>Industries Served</p>
+                <h3><span class="counter-number" data-target="85">0</span>+</h3>
+                <p>Viral Campaigns Scaled</p>
             </div>
             <div class="stat-item">
-                <h3><span class="counter-number" data-target="9">0</span></h3>
-                <p>Core Services</p>
+                <h3><span class="counter-number" data-target="12">0</span>.4x</h3>
+                <p>Peak TikTok ROAS</p>
             </div>
             <div class="stat-item">
                 <h3><span class="counter-number" data-target="100">0</span>%</h3>
-                <p>Client Satisfaction</p>
+                <p>Retention-Focused Strategy</p>
             </div>
         </div>
     </section>
@@ -125,112 +216,198 @@
     <!-- Services Snapshot Section -->
     <section class="services-snapshot-section reveal">
         <div class="section-title-wrapper">
+            <div class="section-pill">CORE CAPABILITIES</div>
             <h2 class="section-title">What <span class="gradient-text">We Do</span></h2>
-<p class="section-subtitle">
-  We specialize in scroll-stopping content, authentic storytelling, and video-first marketing strategies that help brands connect with people, not just audiences. 
-</p>
+            <p class="section-subtitle">
+                We specialize in scroll-stopping content, authentic storytelling, and video-first marketing strategies that help brands connect with people, not just audiences.
+            </p>
         </div> 
         
         <div class="services-grid">
             <!-- 1. Viral Content Creation -->
             <div class="glass-card glass-card-purple">
-                <div class="service-card-icon"><i class="fa-solid fa-fire"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">01</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-fire"></i></div>
+                </div>
                 <h3 class="service-card-title">Viral Content Creation</h3>
-                <p>Scroll-stopping content built to go viral, capture attention and drive engagement.</p>
+                <p>Scroll-stopping content built to go viral, capture attention and drive massive organic engagement across feeds.</p>
+                <div class="service-tags">
+                    <span>TikTok Hooks</span>
+                    <span>Viral Scripting</span>
+                    <span>High Retention</span>
+                </div>
             </div>
             
             <!-- 2. Digital Marketing -->
             <div class="glass-card glass-card-pink">
-                <div class="service-card-icon"><i class="fa-solid fa-cubes"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">02</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-cubes"></i></div>
+                </div>
                 <h3 class="service-card-title">Digital Marketing</h3>
-                <p>3D/VFX-powered visual campaigns crafted to outperform competition.</p>
+                <p>3D/VFX-powered visual campaigns and data-driven ad strategies crafted to outperform competition.</p>
+                <div class="service-tags">
+                    <span>3D / VFX Ads</span>
+                    <span>Paid Spark Ads</span>
+                    <span>Full-Funnel</span>
+                </div>
             </div>
             
             <!-- 3. Social Media & TikTok Management -->
             <div class="glass-card glass-card-orange">
-                <div class="service-card-icon"><i class="fa-brands fa-tiktok"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">03</span>
+                    <div class="service-card-icon"><i class="fa-brands fa-tiktok"></i></div>
+                </div>
                 <h3 class="service-card-title">Social Media & TikTok</h3>
-                <p>Strategy to production and distribution, fully managed by our experts.</p>
+                <p>Strategy, daily production, trend-jacking, and channel distribution, fully managed by our specialized team.</p>
+                <div class="service-tags">
+                    <span>Account Scale</span>
+                    <span>Daily Posting</span>
+                    <span>Community</span>
+                </div>
             </div>
             
             <!-- 4. Influencer Marketing -->
             <div class="glass-card glass-card-purple">
-                <div class="service-card-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">04</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-star"></i></div>
+                </div>
                 <h3 class="service-card-title">Influencer Marketing</h3>
-                <p>ROI-focused campaigns with top creators across GCC and international markets.</p>
+                <p>ROI-focused creator partnerships with vetted influencers across GCC and tier-one international markets.</p>
+                <div class="service-tags">
+                    <span>Creator Roster</span>
+                    <span>UGC Pipeline</span>
+                    <span>Contracts</span>
+                </div>
             </div>
             
             <!-- 5. Social Media Strategy -->
             <div class="glass-card glass-card-pink">
-                <div class="service-card-icon"><i class="fa-solid fa-compass"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">05</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-compass"></i></div>
+                </div>
                 <h3 class="service-card-title">Social Media Strategy</h3>
-                <p>PR, custom business consulting, and detailed digital execution strategies.</p>
+                <p>Brand positioning, algorithmic auditing, PR management, and custom digital roadmaps built for scale.</p>
+                <div class="service-tags">
+                    <span>Audits</span>
+                    <span>PR Playbook</span>
+                    <span>Brand Growth</span>
+                </div>
             </div>
             
             <!-- 6. Web Development -->
             <div class="glass-card glass-card-orange">
-                <div class="service-card-icon"><i class="fa-solid fa-code"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">06</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-code"></i></div>
+                </div>
                 <h3 class="service-card-title">Web Development</h3>
-                <p>Modern, responsive, user-friendly, and conversion-focused websites.</p>
+                <p>Modern, responsive, ultra-fast, and conversion-focused websites engineered to turn traffic into revenue.</p>
+                <div class="service-tags">
+                    <span>Landing Pages</span>
+                    <span>Modern UI/UX</span>
+                    <span>High Conversion</span>
+                </div>
             </div>
             
             <!-- 7. Photography & Videography -->
             <div class="glass-card glass-card-purple">
-                <div class="service-card-icon"><i class="fa-solid fa-camera"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">07</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-camera"></i></div>
+                </div>
                 <h3 class="service-card-title">Photography & Videography</h3>
-                <p>High-quality product and commercial visual production on location.</p>
+                <p>High-end product photography and commercial cinema visual production executed on studio locations.</p>
+                <div class="service-tags">
+                    <span>4K Cinema</span>
+                    <span>Studio Lighting</span>
+                    <span>Commercials</span>
+                </div>
             </div>
             
             <!-- 8. Video Editing -->
             <div class="glass-card glass-card-pink">
-                <div class="service-card-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">08</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-clapperboard"></i></div>
+                </div>
                 <h3 class="service-card-title">Video Editing</h3>
-                <p>Platform-ready edits featuring strong hooks, graphics, and dynamic pacing.</p>
+                <p>Platform-ready edits featuring pattern-interrupt hooks, sound design, DaVinci grading, and dynamic pacing.</p>
+                <div class="service-tags">
+                    <span>Color Grading</span>
+                    <span>Sound SFX</span>
+                    <span>Kinetic Pacing</span>
+                </div>
             </div>
             
             <!-- 9. Graphic Designing -->
             <div class="glass-card glass-card-orange">
-                <div class="service-card-icon"><i class="fa-solid fa-palette"></i></div>
+                <div class="card-header-meta">
+                    <span class="service-idx">09</span>
+                    <div class="service-card-icon"><i class="fa-solid fa-palette"></i></div>
+                </div>
                 <h3 class="service-card-title">Graphic Designing</h3>
-                <p>Eye-catching social and brand visuals aligned with your brand identity.</p>
+                <p>Eye-catching social branding, click-worthy thumbnails, and identity systems aligned with your vision.</p>
+                <div class="service-tags">
+                    <span>Brand Identity</span>
+                    <span>Thumbnails</span>
+                    <span>Key Visuals</span>
+                </div>
             </div>
         </div>
         
         <div class="services-cta-wrapper">
-            <a href="services.html" class="btn btn-outline">View All Services</a>
+            <a href="services.html" class="btn btn-outline">Explore All Services</a>
         </div>
     </section>
 
     <!-- Why Choose Us Section -->
     <section class="why-choose-us-section reveal">
         <div class="section-title-wrapper">
+            <div class="section-pill">OUR ADVANTAGE</div>
             <h2 class="section-title">Why Choose <span class="gradient-text">Romic Media</span>?</h2>
-            <p class="section-subtitle">We pair cutting-edge digital aesthetics with authentic execution to ensure results.</p>
+            <p class="section-subtitle">We pair cutting-edge digital aesthetics with authentic execution to guarantee exponential impact.</p>
         </div>
         
         <div class="why-grid">
             <div class="glass-card glass-card-purple">
-                <div class="why-icon"><i class="fa-solid fa-house-chimney"></i></div>
-                <h3 class="why-card-title">All-in-one <br>digital marketing solutions </h3>
-                <p>From concept brainstorming and detailed scripting to visual production and targeted distribution. We run the complete pipeline without middle-men.</p>
+                <div class="card-header-meta">
+                    <span class="service-idx">01</span>
+                    <div class="why-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                </div>
+                <h3 class="why-card-title">All-In-One Production &amp; Distribution</h3>
+                <p>From concept brainstorming and detailed scripting to cinema-grade production and algorithmic distribution. We execute the complete pipeline without middle-men.</p>
             </div>
             
             <div class="glass-card glass-card-pink">
-                <div class="why-icon"><i class="fa-solid fa-circle-play"></i></div>
-                <h3 class="why-card-title">Video-first strategies <br>for modern platforms</h3>
-                <p>Social algorithms favor Reels, Shorts, and TikTok format. We build video campaigns optimized for hook retention and shareability.</p>
+                <div class="card-header-meta">
+                    <span class="service-idx">02</span>
+                    <div class="why-icon"><i class="fa-solid fa-circle-play"></i></div>
+                </div>
+                <h3 class="why-card-title">Video-First Algorithmic Engineering</h3>
+                <p>Social algorithms favor Reels, Shorts, and TikTok format. We build video campaigns optimized for 3-second hook retention, emotional resonance, and shareability.</p>
             </div>
             
             <div class="glass-card glass-card-orange">
-                <div class="why-icon"><i class="fa-solid fa-comments"></i></div>
-                <h3 class="why-card-title">A perfect fusion of <br> performance and creativity</h3>
-                <p>We believe in people over products. Our concepts use real creators and dynamic representations to earn immediate audience trust.</p>
+                <div class="card-header-meta">
+                    <span class="service-idx">03</span>
+                    <div class="why-icon"><i class="fa-solid fa-comments"></i></div>
+                </div>
+                <h3 class="why-card-title">Fusion of Creativity &amp; Performance</h3>
+                <p>We believe in people over products. Our concepts use real creators, dynamic 3D/VFX, and pattern interrupts to earn immediate audience trust and drive action.</p>
             </div>
             
             <div class="glass-card glass-card-purple">
-                <div class="why-icon"><i class="fa-solid fa-chart-line"></i></div>
-                <h3 class="why-card-title">ROI-focused marketing <br>and influencer campaigns </h3>
-                <p>We are a performance creative house. Every campaign is designed with a strict conversion, reach, or tracking objective in mind.</p>
+                <div class="card-header-meta">
+                    <span class="service-idx">04</span>
+                    <div class="why-icon"><i class="fa-solid fa-chart-line"></i></div>
+                </div>
+                <h3 class="why-card-title">Relentless Conversion &amp; ROI Focus</h3>
+                <p>We are a performance creative house. Every video, 3D asset, and influencer partnership is built with a strict metric objective: reach, clicks, or customer acquisition.</p>
             </div>
         </div>
     </section>
@@ -238,25 +415,26 @@
     <!-- Client Logos Scrolling Marquee Section -->
     <section class="client-logos-section reveal" style="padding-bottom: 0;">
         <div class="section-title-wrapper">
-            <h2 class="section-title">Brands We've <span class="gradient-text">Worked With</span></h2>
+            <div class="section-pill">TRUSTED PARTNERS</div>
+            <h2 class="section-title">Brands We've <span class="gradient-text">Scaled</span></h2>
         </div>
         
         <div class="marquee-container">
             <div class="marquee-track" id="marquee-track">
-               <div class="marquee-card">M. Shapiro Real Estate Group</div>
-<div class="marquee-card">Gongcha UK</div>
-<div class="marquee-card">London Motor Sports</div>
-<div class="marquee-card">HomeWorld Management</div>
-<div class="marquee-card">Continental Car Hire</div>
-<div class="marquee-card">Affinity Vibez</div>
-<div class="marquee-card">Chai Khass</div>
-<div class="marquee-card">Sultan Restaurant</div>
-<div class="marquee-card">Urban Bites Co.</div>
-<div class="marquee-card">Techbuzz</div>
-<div class="marquee-card">Snackline Foods</div>
-<div class="marquee-card">FreshPour Beverages</div>
-<div class="marquee-card">CrispKing</div>
-<div class="marquee-card">Mira Wellness Co.</div>
+                <div class="marquee-card"><span class="brand-dot"></span>M. Shapiro Real Estate</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Gongcha UK</div>
+                <div class="marquee-card"><span class="brand-dot"></span>London Motor Sports</div>
+                <div class="marquee-card"><span class="brand-dot"></span>HomeWorld Management</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Continental Car Hire</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Affinity Vibez</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Chai Khass</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Sultan Restaurant</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Urban Bites Co.</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Techbuzz</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Snackline Foods</div>
+                <div class="marquee-card"><span class="brand-dot"></span>FreshPour Beverages</div>
+                <div class="marquee-card"><span class="brand-dot"></span>CrispKing</div>
+                <div class="marquee-card"><span class="brand-dot"></span>Mira Wellness Co.</div>
             </div>
         </div>
     </section>
@@ -264,8 +442,9 @@
     <!-- Reviews Section -->
     <section class="reviews-section reveal">
         <div class="section-title-wrapper">
+            <div class="section-pill">PROVEN RESULTS</div>
             <h2 class="section-title">What Our <span class="gradient-text">Clients Say</span></h2>
-            <p class="section-subtitle">Real feedback from brands and people's we've helped scale through dynamic digital campaigns.</p>
+            <p class="section-subtitle">Real feedback from founders and brand directors we've helped scale through dynamic digital campaigns.</p>
         </div>
         
         <div class="reviews-carousel-wrapper">
@@ -276,7 +455,13 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="review-text">"Romic Media really knows how to make your brand stand out. The team is super creative and always gets the latest trends. I was amazed at how quickly they delivered our content. Will definitely work with them again!"</p>
-                    <div class="review-author">— Verified Client</div>
+                    <div class="review-meta-footer">
+                        <div class="author-avatar">MS</div>
+                        <div>
+                            <div class="review-author">M. Shapiro Group</div>
+                            <div class="review-status"><i class="fa-solid fa-circle-check"></i> Verified Campaign</div>
+                        </div>
+                    </div>
                 </div>
                 <!-- 2 -->
                 <div class="glass-card review-card glass-card-purple">
@@ -284,7 +469,13 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="review-text">"I absolutely love working with Romic Media. They handled our social media campaigns perfectly, and our engagement skyrocketed. Honest team and very easy to communicate with."</p>
-                    <div class="review-author">— Verified Client</div>
+                    <div class="review-meta-footer">
+                        <div class="author-avatar">GC</div>
+                        <div>
+                            <div class="review-author">Gongcha UK</div>
+                            <div class="review-status"><i class="fa-solid fa-circle-check"></i> Verified Campaign</div>
+                        </div>
+                    </div>
                 </div>
                 <!-- 3 -->
                 <div class="glass-card review-card glass-card-orange">
@@ -292,17 +483,27 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="review-text">"These guys are pros! From concept to execution, everything was smooth. Our video content looks amazing, and our followers are loving it. I highly recommend it!"</p>
-                    <div class="review-author">— Verified Client</div>
+                    <div class="review-meta-footer">
+                        <div class="author-avatar">LM</div>
+                        <div>
+                            <div class="review-author">London Motor Sports</div>
+                            <div class="review-status"><i class="fa-solid fa-circle-check"></i> Verified Campaign</div>
+                        </div>
+                    </div>
                 </div>
                 <!-- 4 -->
                 <div class="glass-card review-card glass-card-pink">
                     <div class="review-stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="review-text">
-                        "Super creative team. I hired them for influencer marketing, and it was a total success. They know how to pick the right influencers for your brand."<p>
-
-                    <div class="review-author">— Verified Client</div>
+                    <p class="review-text">"Super creative team. I hired them for influencer marketing, and it was a total success. They know how to pick the right influencers for your brand."</p>
+                    <div class="review-meta-footer">
+                        <div class="author-avatar">CC</div>
+                        <div>
+                            <div class="review-author">Continental Car Hire</div>
+                            <div class="review-status"><i class="fa-solid fa-circle-check"></i> Verified Campaign</div>
+                        </div>
+                    </div>
                 </div>
                 <!-- 5 -->
                 <div class="glass-card review-card glass-card-purple">
@@ -310,7 +511,13 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="review-text">"Romic Media made my website and social media content look so professional. The design and videos are top-notch. Really happy with their work."</p>
-                    <div class="review-author">— Verified Client</div>
+                    <div class="review-meta-footer">
+                        <div class="author-avatar">CK</div>
+                        <div>
+                            <div class="review-author">Chai Khass</div>
+                            <div class="review-status"><i class="fa-solid fa-circle-check"></i> Verified Campaign</div>
+                        </div>
+                    </div>
                 </div>
                 <!-- 6 -->
                 <div class="glass-card review-card glass-card-orange">
@@ -318,53 +525,38 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="review-text">"Had a great experience with Romic Media. They are friendly, creative, and deliver what they promise. Totally recommended for any business looking to grow online."</p>
-                    <div class="review-author">— Verified Client</div>
-                </div>
-                <!-- 7 -->
-                <div class="glass-card review-card glass-card-pink">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="review-meta-footer">
+                        <div class="author-avatar">TB</div>
+                        <div>
+                            <div class="review-author">Techbuzz Co.</div>
+                            <div class="review-status"><i class="fa-solid fa-circle-check"></i> Verified Campaign</div>
+                        </div>
                     </div>
-                    <p class="review-text">"I love the energy and creativity of this team. They made our brand content fun and memorable. Very happy with the results."</p>
-                    <div class="review-author">— Verified Client</div>
-                </div>
-                <!-- 8 -->
-                <div class="glass-card review-card glass-card-purple">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="review-text">"I wasn't expecting such fast results! Romic Media handled everything from graphics to videos and made sure our social media looked amazing. Great team!"</p>
-                    <div class="review-author">— Verified Client</div>
-                </div>
-                <!-- 9 -->
-                <div class="glass-card review-card glass-card-orange">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="review-text">"They helped us with our digital marketing and influencer campaigns. Really saw a boost in engagement and followers. The team is very professional and chill at the same time."</p>
-                    <div class="review-author">— Verified Client</div>
-                </div>
-                <!-- 10 -->
-                <div class="glass-card review-card glass-card-pink">
-                    <div class="review-stars">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="review-text">"Romic Media is the real deal! The videos, graphics, and social media strategies are all amazing. Their personal touch makes the content feel authentic. I loved working with them."</p>
-                    <div class="review-author">— Verified Client</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
+    <!-- Final High-Converting CTA Section -->
     <section class="reveal">
         <div class="final-cta-section">
+            <div class="final-cta-glow"></div>
             <div class="final-cta-content">
-                <h2 class="final-cta-title">Let's Create  <span class="gradient-text">Something Amazing</span></h2>
-                <p class="final-cta-subtext">Got an idea or project in mind? We'd love to hear about it <br> Reach out to Romic Media and let us turn your vision into scroll-stopping content that drives real results. 
-
-</p>
-                <a href="contact.html" class="btn btn-solid" style="padding: 18px 40px; font-size: 1.15rem;">Start a Project</a>
+                <div class="section-pill" style="margin-bottom: 20px;">LET'S CONNECT</div>
+                <h2 class="final-cta-title">Ready to Make Your Brand <span class="gradient-text">Go Viral?</span></h2>
+                <p class="final-cta-subtext">
+                    Turn your brand into a scroll-stopping powerhouse. Reach out to Romic Media today and let's engineer content that drives real, measurable growth.
+                </p>
+                <div class="final-cta-buttons">
+                    <a href="contact.html" class="btn btn-solid hero-btn-main" style="padding: 16px 36px;">
+                        <span>Start a Project</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://wa.me/923209670625" target="_blank" class="btn btn-outline" style="padding: 16px 32px;">
+                        <i class="fa-brands fa-whatsapp" style="color: #00F59B;"></i>
+                        <span>WhatsApp Quick Chat</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -377,55 +569,57 @@
                     <img src="Romic_Media_Logo.png" alt="Romic Media" class="logo-img">
                 </a>
                 <p class="footer-brand-desc">
-                    Romic Media is a full-service creative & digital media house. We create powerful, innovative, fun, and memorable content under one roof.
+                    Romic Media is a premier creative and digital media house specializing in viral video production, TikTok scaling, 3D/VFX, and high-performance digital marketing.
                 </p>
+                <div class="footer-status-pill">
+                    <span class="live-dot"></span>
+                    <span>Operational Worldwide // GCC &bull; UK &bull; Global</span>
+                </div>
             </div>
             
             <div class="footer-col">
-                <h4>Company</h4>
+                <h4>Navigation</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <!-- <li><a href="work.html">Work</a></li> -->
-                     
+                    <li><a href="services.html">Services</a></li>
                     <li><a href="industries.html">Industries</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="https://www.chatbase.co/B4U5oP-RhPYTHTbgzU2lm/help" target="_blank">AI Help / Assistant</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                    <li><a href="https://www.chatbase.co/B4U5oP-RhPYTHTbgzU2lm/help" target="_blank">AI Assistant</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                 </ul>
             </div>
             
             <div class="footer-col">
-                <h4>Services</h4>
+                <h4>Capabilities</h4>
                 <ul>
-                    <li><a href="services.html">Viral Content Creation</a></li>
-                    <li><a href="services.html">Digital Marketing</a></li>
-                    <li><a href="services.html">Social Media Management</a></li>
+                    <li><a href="services.html">Viral Video Production</a></li>
+                    <li><a href="services.html">TikTok & Reels Scaling</a></li>
+                    <li><a href="services.html">3D & VFX Campaigns</a></li>
                     <li><a href="services.html">Influencer Marketing</a></li>
                     <li><a href="services.html">Web Development</a></li>
                 </ul>
             </div>
             
             <div class="footer-col">
-                <h4>Contact</h4>
+                <h4>Get in Touch</h4>
                 <div class="footer-contact-info">
                     <p><i class="fa-solid fa-envelope"></i> romicmediaofficial@gmail.com</p>
                     <p><i class="fa-solid fa-phone"></i> 0320 967 0625</p>
                 </div>
                 <div class="social-links-grid">
-                    <a href="https://instagram.com/romicmedia" target="_blank" class="social-circle-link"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@romicmedia" target="_blank" class="social-circle-link"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#" class="social-circle-link"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="social-circle-link"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#" class="social-circle-link"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://instagram.com/romicmedia" target="_blank" class="social-circle-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@romicmedia" target="_blank" class="social-circle-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/923209670625" target="_blank" class="social-circle-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-circle-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="social-circle-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>
         
         <div class="bottom-bar">
-            <p>&copy; 2025 Romic Media. All Rights Reserved.</p>
-                <p>Designed & Developed By Ali Hassan <span style="color: #4a4a4a; margin: 0 8px;">|</span> <a href="mailto:alihassanguaraya.net@gmail.com" style="color: inherit; text-decoration: none;">alihassanguaraya.net@gmail.com</a></p>
-
+            <p>&copy; 2026 Romic Media. All Rights Reserved.</p>
+            <p>Designed & Developed By Ali Hassan <span style="color: #4a4a4a; margin: 0 8px;">|</span> <a href="mailto:alihassanguaraya.net@gmail.com" style="color: inherit; text-decoration: none;">alihassanguaraya.net@gmail.com</a></p>
         </div>
     </footer>
 
@@ -436,8 +630,5 @@
 
     <!-- JS Logic Controller -->
     <script src="main.js"></script>
-
-
-
 </body>
 </html>
