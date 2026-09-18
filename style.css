@@ -2209,7 +2209,7 @@ textarea.form-control {
         background-color: #070709;
         background-image: url('herobackgroundimage.jpg');
         background-size: cover;
-        background-position: center 25%;
+        background-position: center center;
         background-repeat: no-repeat;
     }
     

@@ -31,7 +31,10 @@
             window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
         }
     </script>
-    
+
+    <!-- Hero Background High-Priority Preload for Fast Mobile Performance -->
+    <link rel="preload" as="image" href="herobackgroundimage.jpg" fetchpriority="high">
+
     <!-- CSS and FontAwesome Icons -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
