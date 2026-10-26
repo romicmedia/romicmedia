@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
 
 /* Brand Design System Variables - Elite Sharp Agency Palette */
 :root {
@@ -474,11 +474,12 @@ section {
    PAGE 1: HOME
    ========================================================================== */
 
-/* Hero Section (100vh Full Viewport Matching Reference Mockup) */
+/* Hero Section (100vh Full Viewport Awwwards Creative Studio) */
 .hero-section {
     position: relative;
     width: 100%;
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -492,38 +493,99 @@ section {
     overflow: hidden;
 }
 
-/* Subtle Top & Bottom Gradient (Leaves Center 100% Bright & Vibrant) */
+/* Cinematic Multi-Stage Scrim Overlay */
 .hero-section::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(7, 7, 9, 0.6) 0%, transparent 20%, transparent 80%, rgba(7, 7, 9, 0.95) 100%);
+    background: 
+        radial-gradient(circle at center, transparent 35%, rgba(7, 7, 9, 0.75) 85%, #070709 100%),
+        linear-gradient(180deg, rgba(7, 7, 9, 0.75) 0%, transparent 22%, transparent 75%, #070709 100%);
     pointer-events: none;
     z-index: 1;
 }
 
+/* Production Studio Viewfinder Overlay (Positioned Cleanly Below Header) */
+.hero-viewfinder {
+    position: absolute;
+    inset: 90px 28px 24px 28px;
+    pointer-events: none;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.vf-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: rgba(255, 255, 255, 0.22);
+    border-style: solid;
+}
+
+.vf-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.vf-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.vf-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.vf-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+.vf-hud-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-title);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    padding: 0 10px;
+}
+
+.vf-rec {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.rec-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FF0055;
+    box-shadow: 0 0 10px #FF0055;
+    animation: pulseRed 1.2s infinite ease-in-out;
+}
+
+@keyframes pulseRed {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+}
+
 .hero-content {
-    max-width: 960px;
+    max-width: 1040px;
     margin: auto auto;
     text-align: center;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     padding: 10px 20px;
 }
 
-/* Hero Badge & Live Pill (Matching Reference Mockup) */
+/* Studio Status Capsule */
 .hero-badge-wrapper {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 22px;
     padding: 6px 20px 6px 8px;
     background: rgba(14, 14, 20, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 50px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -532,13 +594,13 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 16px;
+    padding: 5px 14px;
     background: rgba(0, 245, 155, 0.12);
     border: 1px solid rgba(0, 245, 155, 0.35);
     border-radius: 50px;
     color: var(--accent-green);
     font-family: var(--font-title);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -560,9 +622,9 @@ section {
 
 .hero-category-tag {
     font-family: var(--font-title);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.6px;
     color: var(--text-secondary);
 }
 
@@ -570,46 +632,99 @@ section {
     color: var(--text-primary);
 }
 
+/* Monumental Headline */
 .hero-title {
-    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    font-size: clamp(2.7rem, 5.2vw, 4.4rem);
     font-weight: 800;
-    letter-spacing: -1.2px;
+    letter-spacing: -1.6px;
     line-height: 1.08;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     color: #FFFFFF;
 }
 
 .hero-title-white {
     color: #FFFFFF;
-    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.95);
+    text-shadow: 0 4px 22px rgba(0, 0, 0, 0.95), 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero-subtitle {
-    font-size: clamp(1.08rem, 1.6vw, 1.25rem);
+    font-size: clamp(1.04rem, 1.38vw, 1.2rem);
     color: #EDEDF8;
-    margin-bottom: 34px;
+    margin-bottom: 26px;
     max-width: 740px;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.65;
     font-weight: 400;
     text-shadow: 
-        0 2px 12px rgba(0, 0, 0, 0.95),
-        0 4px 25px rgba(0, 0, 0, 0.9);
+        0 2px 14px rgba(0, 0, 0, 0.95),
+        0 4px 28px rgba(0, 0, 0, 0.9);
 }
 
+/* Agency Value & Telemetry Strip */
+.hero-telemetry-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding: 10px 28px;
+    margin-bottom: 32px;
+    background: rgba(14, 14, 20, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.telemetry-item {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.telemetry-num {
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+}
+
+.telemetry-lbl {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.telemetry-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* Dual High-Impact CTAs */
 .hero-ctas {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     margin-bottom: 0;
     flex-wrap: wrap;
 }
 
+.hero-ctas-subgroup {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
 .hero-btn-main {
-    padding: 16px 38px;
+    padding: 16px 36px;
     font-size: 1.05rem;
     font-weight: 700;
     gap: 10px;
@@ -617,14 +732,47 @@ section {
 }
 
 .hero-btn-sub {
-    padding: 16px 32px;
-    font-size: 1.05rem;
+    padding: 16px 28px;
+    font-size: 1rem;
     font-weight: 600;
-    gap: 10px;
-    background: rgba(14, 14, 20, 0.75);
+    gap: 9px;
+    background: rgba(14, 14, 20, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+}
+
+.hero-btn-reel i {
+    color: var(--accent-pink);
+    font-size: 1.05rem;
+    transition: transform var(--transition-fast);
+}
+
+.hero-btn-reel:hover i {
+    transform: scale(1.15);
+}
+
+.hero-whatsapp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 22px;
+    border-radius: 50px;
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    color: #25D366;
+    font-family: var(--font-title);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-medium);
+}
+
+.hero-whatsapp-badge:hover {
+    background: rgba(37, 211, 102, 0.2);
+    border-color: rgba(37, 211, 102, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
 }
 
 /* Dedicated Showcase Section right below the 100vh Hero */
@@ -992,33 +1140,30 @@ section {
     color: var(--text-secondary);
 }
 
-/* Services Snapshot */
+/* Services Snapshot (Awwwards Capabilities Matrix) */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 28px;
     margin-bottom: 50px;
 }
 
-.card-header-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 22px;
-}
-
-.service-idx {
+.service-pill-tag {
     font-family: var(--font-title);
-    font-size: 0.85rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .service-card-icon {
-    font-size: 1.5rem;
-    width: 48px;
-    height: 48px;
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1038,20 +1183,27 @@ section {
 }
 
 .service-card-title {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 12px;
     color: #FFFFFF;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.4px;
+    line-height: 1.25;
+}
+
+.services-grid .glass-card p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
 }
 
 .service-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 24px;
     padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .service-tags span {
@@ -1059,8 +1211,8 @@ section {
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    padding: 4px 10px;
-    border-radius: 6px;
+    padding: 5px 12px;
+    border-radius: 50px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--text-secondary);
@@ -1070,17 +1222,29 @@ section {
     text-align: center;
 }
 
-/* Why Choose Us Grid */
+/* Why Choose Us Grid (The Romic Formula) */
 .why-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 28px;
+}
+
+.why-step-badge {
+    font-family: var(--font-title);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent-pink);
+    background: rgba(255, 0, 122, 0.1);
+    border: 1px solid rgba(255, 0, 122, 0.25);
+    padding: 4px 12px;
+    border-radius: 50px;
 }
 
 .why-icon {
-    font-size: 1.6rem;
-    width: 48px;
-    height: 48px;
+    font-size: 1.5rem;
+    width: 46px;
+    height: 46px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1099,35 +1263,44 @@ section {
     margin-bottom: 14px;
     color: #FFFFFF;
     line-height: 1.3;
+    letter-spacing: -0.4px;
 }
 
-/* Client Logos Marquee */
+.why-card-item p {
+    font-size: 1rem;
+    line-height: 1.68;
+    color: var(--text-secondary);
+}
+
+/* Client Logos Marquee (Liquid Infinite Ticker with Edge Mask) */
 .marquee-container {
     overflow: hidden;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     position: relative;
-    padding: 36px 0;
+    padding: 38px 0;
     background: rgba(10, 10, 14, 0.6);
     border-top: 1px solid var(--glass-border);
     border-bottom: 1px solid var(--glass-border);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
 }
 
 .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 30s linear infinite;
+    animation: marquee 35s linear infinite;
 }
 
 .marquee-card {
     padding: 14px 28px;
-    background: rgba(18, 18, 24, 0.65);
+    background: rgba(18, 18, 26, 0.7);
     border: 1px solid var(--glass-border);
     border-radius: 100px;
     margin: 0 12px;
     font-family: var(--font-title);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.96rem;
     color: var(--text-secondary);
     transition: var(--transition-medium);
     white-space: nowrap;
@@ -1146,18 +1319,14 @@ section {
 .marquee-card:hover {
     color: #FFFFFF;
     border-color: var(--accent-pink);
-    background: rgba(255, 0, 122, 0.08);
-    box-shadow: 0 0 20px rgba(255, 0, 122, 0.2);
+    background: rgba(255, 0, 122, 0.1);
+    box-shadow: 0 0 25px rgba(255, 0, 122, 0.25);
     transform: translateY(-2px);
 }
 
 @keyframes marquee {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-50%, 0, 0);
-    }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
 /* Reviews Carousel */
@@ -1182,42 +1351,46 @@ section {
 }
 
 .review-card {
-    flex: 0 0 400px;
+    flex: 0 0 420px;
     scroll-snap-align: start;
-    border-radius: 18px;
-    min-height: 240px;
+    border-radius: 20px;
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 34px;
+    background: rgba(16, 16, 24, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .review-stars {
     color: #FFB800;
-    margin-bottom: 15px;
-    font-size: 1rem;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
     display: flex;
     gap: 4px;
 }
 
 .review-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: var(--text-primary);
+    font-size: 1.02rem;
+    line-height: 1.68;
+    margin-bottom: 22px;
+    color: #EDEDF8;
+    font-style: normal;
 }
 
 .review-meta-footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 16px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .author-avatar {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
     color: #FFF;
@@ -1226,18 +1399,19 @@ section {
     justify-content: center;
     font-family: var(--font-title);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
 }
 
 .review-author {
     font-family: var(--font-title);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     color: #FFFFFF;
 }
 
 .review-status {
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     color: var(--accent-green);
     display: flex;
     align-items: center;
@@ -1245,18 +1419,18 @@ section {
     margin-top: 2px;
 }
 
-/* Final CTA Section */
+/* Final High-Converting CTA Section */
 .final-cta-section {
     position: relative;
     border-radius: 28px;
-    padding: 90px 40px;
+    padding: 95px 40px;
     text-align: center;
-    background: rgba(14, 14, 20, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: radial-gradient(ellipse at top, rgba(139, 92, 246, 0.22) 0%, rgba(14, 14, 20, 0.95) 70%), #070709;
+    border: 1px solid rgba(255, 255, 255, 0.16);
     margin-top: 60px;
     margin-bottom: 60px;
     overflow: hidden;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 30px 90px -20px rgba(139, 92, 246, 0.3);
 }
 
 .final-cta-glow {
@@ -1266,8 +1440,8 @@ section {
     transform: translateX(-50%);
     width: 70%;
     height: 120%;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.3), rgba(255, 0, 122, 0.15) 50%, transparent 80%);
-    filter: blur(60px);
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.35), rgba(255, 0, 122, 0.18) 50%, transparent 80%);
+    filter: blur(70px);
     pointer-events: none;
 }
 
@@ -1277,21 +1451,22 @@ section {
 }
 
 .final-cta-title {
-    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-size: clamp(2.3rem, 4.6vw, 3.8rem);
     font-weight: 800;
     margin-bottom: 18px;
     text-transform: uppercase;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.6px;
+    line-height: 1.1;
 }
 
 .final-cta-subtext {
     font-size: 1.15rem;
     color: var(--text-secondary);
     margin-bottom: 35px;
-    max-width: 650px;
+    max-width: 660px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .final-cta-buttons {
@@ -2205,44 +2380,116 @@ textarea.form-control {
 @media (max-width: 768px) {
     .hero-section {
         min-height: 100svh;
-        padding: 95px 16px 35px 16px;
+        padding: 95px 16px 30px 16px;
         background-color: #070709;
         background-image: url('herobackgroundimage.jpeg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
     }
+
+    .hero-viewfinder {
+        inset: 75px 12px 14px 12px;
+    }
+
+    .vf-hud-bottom {
+        display: none;
+    }
+
+    .vf-corner {
+        width: 14px;
+        height: 14px;
+        border-color: rgba(255, 255, 255, 0.15);
+    }
     
     .hero-content {
-        padding: 16px 12px;
+        padding: 8px 6px;
         max-width: 100%;
     }
 
     .hero-title {
-        font-size: clamp(2.1rem, 7.5vw, 2.8rem);
-        letter-spacing: -0.6px;
-        line-height: 1.12;
-        margin-bottom: 16px;
+        font-size: clamp(2.05rem, 7.5vw, 2.75rem);
+        letter-spacing: -0.8px;
+        line-height: 1.1;
+        margin-bottom: 14px;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 26px;
-        line-height: 1.58;
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        line-height: 1.55;
     }
 
     .hero-badge-wrapper {
-        padding: 5px 14px;
+        padding: 5px 12px;
         gap: 8px;
+        margin-bottom: 16px;
     }
     
     .hero-live-pill {
-        padding: 4px 12px;
-        font-size: 0.7rem;
+        padding: 4px 10px;
+        font-size: 0.65rem;
     }
     
     .hero-category-tag {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
+    }
+
+    .hero-telemetry-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 8px 12px;
+        gap: 8px;
+        margin-bottom: 20px;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .telemetry-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        text-align: center;
+    }
+
+    .telemetry-divider {
+        display: none;
+    }
+
+    .telemetry-num {
+        font-size: 0.95rem;
+    }
+
+    .telemetry-lbl {
+        font-size: 0.62rem;
+        letter-spacing: 0.4px;
+    }
+
+    .hero-ctas {
+        gap: 10px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btn-main {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .hero-ctas-subgroup {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .hero-btn-sub, .hero-whatsapp-badge {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 12px;
+        font-size: 0.88rem;
     }
     
     .hero-showcase-container {
